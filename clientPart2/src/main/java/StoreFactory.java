@@ -60,6 +60,7 @@ public class StoreFactory {
         System.out.println("Mean response time: " + MetricsGenerator.getMeanResponseTime(requestsTracker));
         System.out.println("Median response time: " + MetricsGenerator.getMedianResponseTime(requestsTracker));
         System.out.println("p99 (99 percentile): " + MetricsGenerator.getPercentileResponseTime(99, requestsTracker));
+        System.out.println("Max response time: " + MetricsGenerator.getMaxResponseTime(requestsTracker));
         try {
             CsvWriter.writeToCsv(String.valueOf(config.getMaxStores()) + "Threads.csv", requestsTracker);
         } catch (FileNotFoundException e) {

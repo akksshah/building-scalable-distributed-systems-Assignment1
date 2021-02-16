@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 public final class MetricsGenerator {
@@ -20,5 +21,9 @@ public final class MetricsGenerator {
                     .limit((int) (Math.floor(100 - percentile) * requests.size() / 100))
                     .collect(Collectors.toList());
         return sortedList.get(sortedList.size() - 1);
+    }
+
+    public static OptionalDouble getMaxResponseTime(List<RequestTracker> requests) {
+        return requests.stream().mapToDouble(RequestTracker::getLatency).max();
     }
 }
