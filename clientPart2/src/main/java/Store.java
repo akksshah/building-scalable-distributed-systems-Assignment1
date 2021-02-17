@@ -64,11 +64,11 @@ public class Store implements Runnable {
                 // System.out.println(counter.getTotalRequestSent() + " Request sent, this was successful");
             } else {
                 counter.requestFailed();
-                // System.err.println("Request failed");
+                 System.err.println("Request failed" + response);
             }
         } catch (ApiException e) {
-            // System.err.println(Arrays.toString(e.getStackTrace()));
-            // System.err.println("Request failed due to: " + e.getMessage());
+            System.err.println("Request failed due to: " + e.getMessage());
+            requestInfoTracker.setResponseCode(null);
             counter.requestFailed();
         } finally {
             requestInfoTracker.setEndTime(System.currentTimeMillis());

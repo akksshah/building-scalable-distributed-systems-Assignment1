@@ -11,6 +11,6 @@ public final class CsvWriter {
     }
 
     private static String convertToCsv(RequestTracker request) {
-        return request.getStartTime() + "," + request.getEndTime() + "," + request.getLatency() + "," + request.getRequestType().name();
+        return request.getStartTime() + "," + request.getEndTime() + "," + request.getLatency() + "," + request.getRequestType().name() + "," + (request.getResponseCode() == null ? "API_EXCEPTION" : request.getResponseCode());
     }
 }
